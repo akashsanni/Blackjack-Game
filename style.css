@@ -1,0 +1,47 @@
+/* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+/* color: goldenrod; */
+/* font-family: 'Nunito Sans', sans-serif; */
+/* @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed&display=swap'); */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Nunito Sans', sans-serif;
+    background: url('rummyTable.jpg') no-repeat center center/ cover;
+    height: 100vh;
+}
+.main-container{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+}
+h1{
+    color: goldenrod;
+    font-size: 5rem;
+    margin: .6em 0;
+}
+#message-el,#cards-el,#sum-el{
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+button{
+    width:70%;
+    height: 3rem;
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: rgb(18, 13, 0);
+    font-size: 1.3rem;
+    font-weight: 500;
+    background-color: goldenrod;
+    border-radius: 5px;
+    box-shadow: 0 0 5px greenyellow;
+}
+
+
