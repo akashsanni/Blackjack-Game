@@ -41,7 +41,17 @@ button{
     font-weight: 500;
     background-color: goldenrod;
     border-radius: 5px;
-    box-shadow: 0 0 5px greenyellow;
+    /* box-shadow: 0 0 5px greenyellow; */
+    border:none;
 }
-
+button:hover{
+    box-shadow: 0 0 5px greenyellow;
+    transition: .3s;
+}
+#name-chips{
+    color: rgb(244, 215, 173);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 1em; 
+}
 

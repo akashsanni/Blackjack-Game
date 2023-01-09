@@ -1,10 +1,12 @@
-let firstCard = randomNumber()
-let secondCard = randomNumber()
-let cards = [firstCard,secondCard]
-let sum = cards[0]+cards[1]
+let cards = []
+let sum=0
 let hasBlackJack = false
-let isAlive = true
+let isAlive = false
 let message =""
+let player = {
+    name:"Akash",
+    chips:150
+}
 
 const startGameBtn = document.querySelector('#start-game-btn')
 const newCardBtn = document.querySelector('#new-card-btn')
@@ -13,24 +15,44 @@ const cardsEl = document.querySelector('#cards-el')
 const sumEl = document.querySelector('#sum-el')
 
 
-startGameBtn.addEventListener('click',renderGame)
+startGameBtn.addEventListener('click',startGame)
 newCardBtn.addEventListener('click',newCard)
 
-function randomNumber(){
-    return Math.floor(Math.random()*12)+1;
+const nameChips = document.querySelector('#name-chips')
+nameChips.textContent=player.name + ": $ " + player.chips
+function getRandomCard(){
+
+    let randomNumber = Math.floor(Math.random()*13)+1
+
+    if(randomNumber === 1){
+        return 11;
+    }else if(randomNumber > 10){
+        return 10;
+    }else {
+        return randomNumber
+    }
+
 }
 
 function startGame(){
+    isAlive= true
+
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    cards = [firstCard,secondCard]
+    sum = cards[0] + cards[1]
+    // console.log(sum)
     renderGame()
 }
 
 function renderGame(){
+    cardsEl.textContent ="Cards: "
 
-    // cardsEl.innerText ="Cards: " + cards[0] + " " + cards[1] + " "
     for(let i=0 ; i< cards.length; i++){
-        cardsEl.textContent +=cards[i] + " "
+        cardsEl.textContent += cards[i] + " "
     }
-    sumEl.innerText = "Sum: " + sum
+
+    sumEl.textContent = "Sum: " + sum
     if(sum < 21){
         message= "Do you want to draw a new card?"
     }else if(sum === 21){
@@ -44,10 +66,12 @@ function renderGame(){
 }
 
 function newCard(){
-    let card = randomNumber()
+
+    if(hasBlackJack === false && isAlive === true){
+    let card = getRandomCard()
     sum += card
     cards.push(card)
     
-    
     renderGame()
+    }
 }
